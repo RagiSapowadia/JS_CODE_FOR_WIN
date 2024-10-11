@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = Number(prompt("Enter first number"));
+        var b = Number(prompt("Enter second number"));
+        var choice = prompt("Enter anyone of the given: +, -, *, /, %");
+
+        switch (choice) {
+
+            case '+':
+                document.write("Addition: ", a + b);
+                break;
+            case '-':
+                document.write("Subtraction: ", a - b);
+                break;
+            case '*':
+                document.write("Multiplication: ", a * b);
+                break;
+            case '/':
+                document.write("Division: ", a / b);
+                break;
+            case '%':
+                document.write("Modulo: ", a % b);
+                break;
+            default:
+                document.write("Invalid!!!!");
+        }
+    </script>
+</body>
+
+</html>
