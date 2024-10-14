@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var p = Number(prompt("Enter principle: "));
+        var r = Number(prompt("Enter interest rate: "));
+        var r = r/100;
+        var n = Number(prompt("Enter number of times interest is compound per year: "));
+        var t = Number(prompt("Enter time: "));
+
+        var expo = n * t
+        var dec_int_rate = r / n
+        var amounut = p * (Math.pow((1 + (r / n)), (n * t)));
+        document.write("Compound Interest is: ",amounut);
+    </script>
+</body>
+</html>
