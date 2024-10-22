@@ -11,6 +11,9 @@
     <script>
         var n = Number(prompt("Enter number"))
         var flag=0, i, j;
+        if(n ==0 || n==1){
+            document.write("Number is neither prime nor composite")
+        }
             for (i = 2; i <= n / 2; ++i) {
 
                 if (n % i == 0) {
