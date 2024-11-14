@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function isArmstrong(num) {
+    var  sum = 0, count= 0;
+   
+
+    var temp = num;
+    while (temp !== 0) {
+        temp = Math.floor(temp / 10);
+        count++;
+    }
+
+    temp = num;
+
+    while (temp !== 0) {
+        var digit = temp % 10;
+        sum += Math.pow(digit, count);
+        temp = Math.floor(temp / 10);
+    }
+if(sum===num){
+    document.write("Number is armStrong")
+}
+else{
+    document.write("Number is not armStrong")
+}
+    
+}
+
+var num = Number(prompt("Enter a number:"));
+
+isArmstrong(num);
+    </script>
+</body>
+</html>

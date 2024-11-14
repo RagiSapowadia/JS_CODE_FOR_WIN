@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fibo(num){
+            var n1 = 0, n2 = 1;
+            document.write(n1+ " , "+n2)
+            for (var i = 2; i < num; i++){
+                var n3 = n1 + n2;
+                document.write(" , "+n3);
+                n1 = n2;
+                n2 = n3;
+            }
+        }
+
+        var n = Number(prompt("Enter number"))
+        fibo(n);
+
+    </script>
+</body>
+</html>
