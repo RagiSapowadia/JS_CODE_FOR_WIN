@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var sum=0;
+        var n = Number(prompt("Enter number"))
+    while(n!=0)
+    {
+         sum += n % 10;
+        n = Math.floor(n/10);
+    }
+    document.write("Sum of digits: ",sum);
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n = Number(prompt("Enter number"))
+        var temp = n;
+        var sum =0;
+        while(temp !=0){
+            var rem = temp %10;
+            var sum = sum+ rem * rem *rem;
+            temp = Math.floor(temp/10);
+        }
+        if(sum ==n){
+            document.write("Number is arm strong")
+        }
+        else{
+            document.write("Number is not arm strong")
+        }
+    </script>
+</body>
+</html>

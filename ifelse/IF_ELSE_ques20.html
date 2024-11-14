@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var baseSal = Number(prompt("Enter base salary"));
+        var grossSal, da, hra;
+        if(baseSal <= 10000)
+    {
+        da  = baseSal * 0.8;
+        hra = baseSal * 0.2;
+    }
+    else if(baseSal <= 20000)
+    {
+        da  = baseSal * 0.9;
+        hra = baseSal * 0.25;
+    }
+    else
+    {
+        da  = baseSal * 0.95;
+        hra = baseSal * 0.3;
+    }
+
+    grossSal = baseSal + hra + da;
+    document.write("Gross Salary: "+ grossSal);
+    </script>
+</body>
+</html>

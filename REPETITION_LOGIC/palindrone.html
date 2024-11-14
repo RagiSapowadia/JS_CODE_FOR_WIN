@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reverse=0, temp;
+        var n = Number(prompt("Enter number"))
+        temp = n;
+        while (n != 0) {
+            var digit = n%10;
+            reverse = (reverse * 10) +digit;
+            n = Math.floor(n/10);
+        }
+        if (temp == reverse){
+
+            document.write("Number is Palindrone ");
+        }
+        else{
+            document.write("Number is not Palindrome");
+        }
+    </script>
+</body>
+
+</html>
