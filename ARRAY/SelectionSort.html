@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function swap(arr, xp, yp) {
+            [arr[xp], arr[yp]] = [arr[yp], arr[xp]]
+        }
+
+        function selectionSort(arr) {
+            var i, j, min;
+            for (i = 0; i < arr.length - 1; ++i) {
+                min = i;
+                for (j = i + 1; j < arr.length; j++) {
+                    if (arr[j] < arr[min]) min = j;
+                }
+
+                if (min != i)
+                    swap(arr, min, i);
+            }
+            return arr;
+        }
+
+        var arr = [96, 45, 100, 12, 17, 120, 18, 7, 3];
+        document.write("Array: " + arr + "<br>")
+        document.write("After sorting: " + selectionSort(arr));
+
+
+    </script>
+</body>
+
+</html>

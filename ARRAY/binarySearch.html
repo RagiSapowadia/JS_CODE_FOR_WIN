@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function binarySearch(arr, val) {
+            var start = 0;
+            var end = arr.length - 1;
+
+            while (start <= end) {
+                var mid = Math.floor((start + end) / 2);
+
+                if (arr[mid] === val) {
+                    return mid;
+                }
+
+                if (val < arr[mid]) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+            }
+            return -1;
+        }
+
+        const arr = [10,20,30,40,50,60,70,80];
+        var el = Number(prompt("Enter value: "))
+        document.write("Element found at index: "+binarySearch(arr, el)); 
+    </script>
+</body>
+
+</html>

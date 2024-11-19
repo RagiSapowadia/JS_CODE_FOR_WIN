@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [10, 20, 30];
+
+        var choice = prompt(
+            "Existing array: " + arr + "\nEnter your choice:\n1. Insert at the end\n2. Insert at the beginning\n3. Insert at a specific location"
+        );
+
+        //at end
+        if (choice === "1") {
+            var el = Number(prompt("Enter number to insert at the end"));
+            arr[arr.length] = el;
+            document.write("New array: " + arr);
+        }
+
+        //at start
+        else if (choice === "2") {
+            var el = Number(prompt("Enter number to insert at the beginning"));
+            for (var i = arr.length; i > 0; i--) { 
+                arr[i] = arr[i - 1];  //i-1 means to traverse from right to left while i+1 traverses from left to right
+            }
+            arr[0] = el;
+            document.write("New array: " + arr);
+        }
+
+        //at given index
+        else if (choice === "3") {
+            var index = Number(prompt("Enter the index where you want to insert"));
+            var el = Number(prompt("Enter number to insert at index " + index));
+            for (var i = arr.length; i > index; i--) {
+                arr[i] = arr[i - 1];
+            }
+            arr[index] = el;
+            document.write("New array: " + arr);
+        }
+
+
+    </script>
+</body>
+
+</html>
