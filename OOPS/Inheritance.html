@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // inheritance in class
+        class Parent{
+            greet(){
+                console.log("Hello from parent");
+            }
+        }
+        class Child1 extends Parent{
+            // accessing parent methods
+            greet(){
+                super.greet();
+                console.log("Hello from child");
+            }
+           
+        }
+        class Child2 extends Child1{
+
+        }
+
+        var c1 = new Child2()
+        c1.greet()
+
+        // inheritance in in objects
+        // var parent = {
+        //     greet(){
+        //         console.log("Hello");
+        //     }
+        // }
+        // var child = Object.assign(parent)
+        // child.greet()
+    </script>
+    
+</body>
+</html>

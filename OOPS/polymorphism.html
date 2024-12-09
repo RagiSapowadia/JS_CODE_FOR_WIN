@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function overriding - run time polymorphism
+        // class Parent {
+
+        //     // create method of same name
+        //     func() {
+        //         console.log("Parent Class");
+        //     }
+        // }
+        // class Child extends Parent {
+        //     func() {
+        //         console.log("Child Class");
+        //     }
+        // }
+
+        // var p = new Parent()
+        // var c = new Child()
+        // p.func()
+        // c.func()
+
+
+        // function overloading  - compile time polymorphism
+        // eg 1
+        function demo(name, age) {
+            if (age !== undefined) {
+                console.log(name + " is " + age + " years old");
+
+            }
+            else {
+                console.log(name + " is a person");
+            }
+        }
+
+        demo("Ragi", 20)
+        demo("Ragi")
+
+        // eg 2
+        class Parent {
+            parentFunc(name) {
+                console.log(name + " is a parent");
+            }
+        }
+        class Child extends Parent {
+            parentFunc(name, age) {
+                console.log(name + " is a parent and " + age + " years old");
+            }
+
+        }
+        class Child1 extends Child {
+            parentFunc(name, age, city) {
+                console.log(name + " is a parent and " + age + " years old " + city + " Lives here");
+            }
+        }
+        var p = new Parent()
+        p.parentFunc("Ragi")
+        var c = new Child()
+        c.parentFunc("Ragi", 20)
+        var c1 = new Child1()
+        c1.parentFunc("Ragi", 20, "Bangalore")
+
+    </script>
+</body>
+
+</html>
