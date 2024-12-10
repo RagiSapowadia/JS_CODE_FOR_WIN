@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="height: 100vh; margin: 0; display: flex; justify-content: center; align-items: center;">
+
+    <img height="auto" width="auto" id="gif" src="" alt="">
+    <h1></h1>
+
+    <script>
+        var fireworks = "https://media.tenor.com/nemUkxHjrWoAAAAj/lullaby-tomandjerry.gif"
+
+        var i = 5;
+
+        var count = setInterval(() => {
+
+            document.querySelector('h1').style.fontSize = "50px";
+            document.querySelector('h1').innerHTML = i;
+            i--;
+
+            if (i < 0) {
+                clearInterval(count);
+                document.querySelector('h1').remove()
+                // document.querySelector('img').style.width = "200px";
+                // document.querySelector('img').style.height = "auto";
+                document.querySelector('img').src = fireworks;
+
+            }
+        }, 1000)
+    </script>
+</body>
+
+</html>

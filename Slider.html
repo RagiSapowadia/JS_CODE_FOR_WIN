@@ -23,6 +23,7 @@
 
 
     <script>
+        // array of objects
         var slideData = [
             { src: "https://images.pexels.com/photos/1119723/pexels-photo-1119723.jpeg?auto=compress&cs=tinysrgb&w=600" },
             { src: "https://images.pexels.com/photos/2122444/pexels-photo-2122444.jpeg?auto=compress&cs=tinysrgb&w=600" },
@@ -35,12 +36,12 @@
         }
 
         document.getElementById("prev").addEventListener("click", () => {
-            index = (index === 0) ? slideData.length - 1 : index - 1;
+            index = (index == 0) ? slideData.length - 1 : index - 1;
             change();
         });
 
         document.getElementById("next").addEventListener("click", () => {
-            index = (index === slideData.length - 1) ? 0 : index + 1;
+            index = (index == slideData.length - 1) ? 0 : index + 1;
             change();
         });
         change();
