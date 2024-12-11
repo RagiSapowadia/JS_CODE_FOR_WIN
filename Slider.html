@@ -13,7 +13,8 @@
 <body>
     <div class="container  w-50 h-50 ">
         <div class=" d-flex align-items-center justify-content-center mt-4">
-            <img src="" alt="" id="slider" class="w-75 h-75">
+            <img src="https://images.pexels.com/photos/1119723/pexels-photo-1119723.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="" id="slider" class="w-75 h-75">
         </div>
         <div class="buttons d-flex align-items-center justify-content-center gap-3 mt-5">
             <button id="prev" class="btn btn-dark w-25">Previous</button>
@@ -23,11 +24,11 @@
 
 
     <script>
-        // array of objects
         var slideData = [
             { src: "https://images.pexels.com/photos/1119723/pexels-photo-1119723.jpeg?auto=compress&cs=tinysrgb&w=600" },
             { src: "https://images.pexels.com/photos/2122444/pexels-photo-2122444.jpeg?auto=compress&cs=tinysrgb&w=600" },
             { src: "https://images.pexels.com/photos/2376713/pexels-photo-2376713.jpeg?auto=compress&cs=tinysrgb&w=600" }
+
         ]
 
         var index = 0
@@ -44,7 +45,51 @@
             index = (index == slideData.length - 1) ? 0 : index + 1;
             change();
         });
-        change();
+        change(); 
+
+
+        setInterval(() => {
+            //    index = (index + 1) % slideData.length
+            //    if(index<slideData.length){
+            //        document.write(slideData[index])
+            //    }
+            //    index++;
+            //    if(index==slideData.length){
+            //     index=0;
+            //    }
+            //    change();
+
+            index++; 
+            if (index == slideData.length) { 
+                index = 0; 
+            }
+            change();
+            // console.log(index); 
+        }, 1000)
+
+
+
+
+        // option 2 using only js
+        // var body = document.getElementById("root") //id of the <body>
+        // var arr=[
+        //     "",
+        //     "",
+        // ]
+        // var img = document.createElement("img")
+        // iage.src = arr[0];
+        // body.append(img)
+        // i=1
+        // setInterval(()=>{
+        //     if(i==arr.length){
+        //         i=0
+        //     }                               
+        //     img.src= arr[i];
+        //     body.append(img);
+        //     i++;
+        // },1000)
+
+      
     </script>
 </body>
 
