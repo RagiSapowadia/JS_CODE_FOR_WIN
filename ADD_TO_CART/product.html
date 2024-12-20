@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: center;
+        
+    }
+    body::before{
+            content: "Product Page";
+            margin: auto;
+            font-size: 35px;
+            width: 100%;
+            text-align: center;
+        }
+
+    div {
+        /* box-shadow: 0px 0px 5px black; */
+        min-height: 550px;
+        border-radius: 5px;
+        border: 1px solid;
+
+    }
+
+
+    img {
+        width: 350px;
+        height: 310px;
+        /* margin-top: 20px; */
+        object-fit: cover;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    p {
+        font-size: 20px;
+        font-weight: 540;
+        text-align: center;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    button {
+
+        font-size: 17px;
+        padding: 10px 20px;
+        background-color: #0f100f;
+        color: white;
+        border: none;
+        /* cursor: pointer; */
+        border-radius: 4px;
+        margin-left: 32%;
+        margin-bottom: 3px;
+
+    }
+
+    button:hover {
+        background-color: rgb(237, 237, 238);
+        color: black;
+        border: 2px solid black;
+    }
+</style>
+
+<body>
+
+    <script>
+        var arr = [
+            {
+                id: 1,
+                img: "https://m.media-amazon.com/images/I/81i1Vn-KQuL.jpg",
+                productName: "Galaxy Watch Ultra ",
+                price: 600.00,
+                qty: 1
+            },
+            {
+                id: 2,
+                img: "https://m.media-amazon.com/images/I/71QUv8DcRBL.jpg",
+                productName: "Galaxy Watch 7",
+                price: 550.00,
+                qty: 1
+            },
+            {
+                id: 3,
+                img: "https://m.media-amazon.com/images/I/71162EQnpKL.jpg",
+                productName: "Galaxy Watch 6 Classic",
+                price: 500.00,
+                qty: 1
+            },
+            {
+                id: 4,
+                img: "https://m.media-amazon.com/images/I/61Guilj8MEL.jpg",
+                productName: "Galaxy Watch 5",
+                price: 450.00,
+                qty: 1
+            },
+            {
+                id: 5,
+                img: "https://images.samsung.com/is/image/samsung/p6pim/in/qa55qe1daulxl/gallery/in-qled-qe1d-qa55qe1daulxl-540555150?$650_519_PNG$",
+                productName: "QLED QE1D 4K (55)",
+                price: 600.00,
+                qty: 1
+            },
+            {
+                id:6,
+                img: "https://images.samsung.com/is/image/samsung/p6pim/in/ua43due77aklxl/gallery/in-crystal-uhd-du7000-499577-ua43due77aklxl-540344294?$650_519_PNG$",
+                productName: "Crystal UHD DUE77 4K (55)",
+                price: 650.00,
+                qty: 1
+            },
+            {
+                id: 7,
+                img: "https://images.samsung.com/is/image/samsung/p6pim/in/qa77s90caklxl/gallery/in-oled-s90c-458654-qa77s90caklxl-536865425?$720_576_PNG$",
+                productName: "OLED S90D 4K (55)",
+                price: 700.99,
+                qty: 1
+            },
+            {
+                id: 8,
+                img: "https://images.samsung.com/is/image/samsung/p6pim/in/qa85qn900ckxxl/gallery/in-qled-qn900c-qa85qn900ckxxl-535909939?$720_576_PNG$",
+                productName: "Neo QLED 8K (55)",
+                price: 750,
+                qty: 1
+            },
+
+
+        ];
+        
+       
+        arr.forEach((el, i) => {
+            var div = document.createElement("div")
+            var img = document.createElement("img")
+            img.src = el.img
+            var productName = document.createElement("h3")
+            productName.textContent = "Product Name : " + el.productName
+            var price = document.createElement("p")
+            price.textContent = "Price : $" + el.price
+            price.style.color = "red";
+            var quantity = document.createElement("p")
+            quantity.textContent = "Quantity : " + el.qty
+            quantity.style.color = "blue";
+            var button = document.createElement("button")
+            button.textContent = "Add to Cart"
+            button.addEventListener("click", function () {
+                addToCart(el)
+            })
+
+            div.append( img, productName, price, quantity, button)
+            document.querySelector("body").appendChild(div)
+
+            
+            
+        })
+
+        function addToCart(el){
+
+
+            var product = JSON.parse(localStorage.getItem("product")) || []
+            product.push(el)
+            localStorage.setItem("product", JSON.stringify(product))
+            alert("Added to cart!")
+            
+        }
+
+
+
+    </script>
+</body>
+
+</html>

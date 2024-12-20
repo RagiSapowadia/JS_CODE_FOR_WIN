@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+
+        }
+
+        body::before {
+            content: "Cart Page";
+            margin: auto;
+            font-size: 35px;
+            width: 100%;
+            text-align: center;
+        }
+
+        div {
+            /* box-shadow: 0px 0px 5px black; */
+            min-height: 550px;
+            border-radius: 5px;
+            border: 1px solid;
+
+        }
+
+        img {
+            width: 350px;
+            height: 310px;
+            /* margin-top: 20px; */
+            object-fit: cover;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 20px;
+            font-weight: 540;
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        button {
+
+            font-size: 17px;
+            padding: 10px 20px;
+            background-color: #0f100f;
+            color: white;
+            border: none;
+            /* cursor: pointer; */
+            border-radius: 4px;
+            margin-left: 32%;
+            margin-bottom: 3px;
+
+        }
+
+        button:hover {
+            background-color: rgb(237, 237, 238);
+            color: black;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var product = JSON.parse(localStorage.getItem("product")) || []
+
+        product.forEach((el, i) => {
+            var div = document.createElement("div")
+            div.id = `product${i}`;
+            var img = document.createElement("img")
+            img.src = el.img
+            var productName = document.createElement("h3")
+            productName.textContent = "Product Name : " + el.productName
+            var price = document.createElement("p")
+            price.textContent = "Price : $" + el.price
+            price.style.color = "red";
+
+            var total = document.createElement("p")
+            total.id = `total${i}`;
+            total.textContent = "Total Price: $" + (el.price * el.qty);
+            total.style.color = "green";
+           
+                var quantity = document.createElement("p")
+                quantity.textContent = "Quantity : " + el.qty
+                quantity.style.color = "blue";
+                quantity.id = `quantity${i}`;
+
+
+
+                var incBtn = document.createElement("button")
+                incBtn.textContent = "Increase Qty"
+                incBtn.addEventListener("click", function () {
+                    Inc(el, i)
+                    totalPrice(el,i)
+                })
+                var decBtn = document.createElement("button")
+                decBtn.textContent = "Decrease Qty"
+                decBtn.addEventListener("click", function () {
+                    Dec(el, i)
+                    totalPrice(el,i)
+                })
+
+
+
+                div.append(img, productName, price, quantity,total, incBtn, decBtn)
+                document.querySelector("body").appendChild(div)
+
+            });
+            function totalPrice(el,i) {
+                const totalElement = document.querySelector(`#total${i}`);
+                if (totalElement) {
+                    totalElement.textContent = "Total Price: $" + (el.price * el.qty);
+                }}
+
+        function Inc(el, i) {
+            el.qty += 1;
+            const quantity = document.querySelector(`#quantity${i}`);
+            if (quantity) {
+                quantity.textContent = "Quantity : " + el.qty;
+            }
+            localStorage.setItem("product", JSON.stringify(product));
+        }
+
+        function Dec(el, i) {
+            if (el.qty > 1) {
+                el.qty -= 1;
+                const quantity = document.querySelector(`#quantity${i}`);
+                if (quantity) {
+                    quantity.textContent = "Quantity : " + el.qty;
+                }
+                localStorage.setItem("product", JSON.stringify(product));
+            }
+            else {
+                var deleteItem = confirm("Item Deleting..");
+                if (deleteItem) {
+                    const product = JSON.parse(localStorage.getItem("product")) || []
+                    product.splice(i, 1);
+                    localStorage.setItem("product", JSON.stringify(product));
+                    const productDiv = document.querySelector(`#product${i}`);
+                    if (productDiv) {
+                        productDiv.remove();
+                    }
+
+                }
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
